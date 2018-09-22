@@ -147,3 +147,37 @@ total(){
     setTimeout(waiter(), 100)
   }
   //triggers done ----------------------------------------------
+  module.exports.addSomePromises = function(somePromise){
+    return new Promise((resolve,reject) =>{
+      console.log(somePromise)
+      setTimeout(resolve(somePromise), 10).then(resolve(somePromise)).catch("failure")
+    })
+  }//end of addSomePromises
+  //-------------------------------------------------------------
+
+  module.exports.addSomePromises = function(somePromise){
+    return new Promise((resolve,reject) =>{
+      console.log(somePromise)
+      setTimeout(resolve(somePromise), 100).then(console.log("somePromise"))
+    })//end of new promise
+  }//end of addSomePromises
+
+//---------------------------------------------------
+
+module.exports.addSomePromises = function(somePromise){
+  const promise = new Promise((resolve, reject) => {
+     setTimeout(()=>{
+       let value = false;
+       if(!value){
+         resolve();
+       } else {
+         reject();
+       }
+     }), 1000)
+  })
+
+  promise
+      .then()
+}//end of addSomePromises
+
+//-----------------------------------------------------------

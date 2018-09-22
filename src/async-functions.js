@@ -6,9 +6,18 @@ module.exports.giveItBackLater = function(value, callback){
 }//end of giveItBackLater
 
 module.exports.addSomePromises = function(somePromise){
-  let myPromise = new Promise((resolve,reject) =>{
-    
-  })//end of new promise
+  const promise = new Promise((resolve, reject) => {
+      test = somePromise
+      console.log(test)
+      if(test.includes('success')){
+        resolve("success")
+      }else{
+        reject("failure")
+      }
+  })
+  promise.then(value => `${value}`)
+         .then(value => `${value}`)
+         .catch(value => `${value}${value}${value}`)
 }//end of addSomePromises
 
 module.exports.promiseToGiveItBackLater = function(value){
